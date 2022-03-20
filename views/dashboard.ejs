@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task manager</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/cerulean/bootstrap.min.css"
+    />
+    <style>
+      :root {
+        --gradient: linear-gradient(90deg, #0fc4f1, #1228f3);
+      }
+
+      * {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+      }
+
+      *::selection {
+        background: #0fc4f1;
+        color: #fff;
+      }
+
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+      }
+
+      html::-webkit-scrollbar {
+        width: 1.5rem;
+      }
+
+      html::-webkit-scrollbar-track {
+        background: #333;
+      }
+
+      html::-webkit-scrollbar-thumb {
+        background: linear-gradient(#0fc4f1, #1228f3);
+      }
+
+      header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 1.5rem 7%;
+        background: var(--gradient);
+        box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+      }
+
+      header .logo {
+        color: #fff;
+        font-size: 2.5rem;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      header #menu {
+        font-size: 3rem;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+      }
+      header #logout {
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      header #logout:hover {
+        color: #444;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .text {
+        margin-top: 60px;
+        font-size: x-large;
+        font-weight: bold;
+      }
+      .content {
+        padding: 5em;
+        margin: 60px auto;
+        max-width: 960px;
+      }
+      .content-head h1 {
+        font-size: 5rem;
+        text-align: center;
+        color: rgb(39, 39, 39);
+        font-weight: bold;
+      }
+      .content-head h2 {
+        font-size: 2.3rem;
+        margin-top: 30px;
+        color: rgb(39, 39, 39);
+        font-weight: bold;
+      }
+      .btn {
+        padding: 15px;
+        border-radius: 22px;
+        background-color: #0fc4f1;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .footer {
+        background: #000416;
+      }
+      .footer .credit {
+        padding: 6rem 1rem;
+        font-size: 1.5rem;
+        color: #fff;
+        background: #000416;
+        text-align: center;
+        font-weight: normal;
+        padding-bottom: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-nd-6 col-lg-5">
+          <!-- <form method="POST" action="/add">
+            <input
+              type="text"
+              name="task"
+              id="task"
+              placeholder="enter a text"
+            />
+            <input type="submit" value="Add" />
+          </form> -->
+        </div>
+      </div>
+      <!-- // -->
+      <!-- // -->
+      <header>
+        <div id="menu" class="fas fa-bars"></div>
+
+        <a href="/profile" class="logo"
+          ><i class="fas fa-user-graduate"></i> Nacademy</a
+        >
+
+        <a href="/"><div id="logout" class="fas fa-user-circle">Logout</div></a>
+      </header>
+
+      <div class="content">
+        <div class="content-head">
+          <h1>Software Development</h1>
+          <h2>Course Content</h2>
+        </div>
+        <% for(var tasks of data ){ %>
+        <form action="/delete" method="POST" class="form-inline my-3">
+          <div class="div1">
+            <p class="text">
+              <a href="/course1" action><%=tasks.task%></a>
+            </p>
+          </div>
+          <input type="hidden" name="id" value="<%= tasks._id %>" />
+          <% if(tasks.status){ %> <%}else{ %>
+          <button
+            type="submit"
+            class="btn btn-primary mx-2"
+            formaction="/update"
+            onclick="colo"
+          >
+            Mark Completed
+          </button>
+          <% } %>
+        </form>
+        <% } %>
+      </div>
+    </div>
+    <div class="footer">
+      <h6 class="credit">
+        ©2022 This page is protected by reCAPTCHA and is subject to the Google
+        Privacy Policy and Terms of Service.
+      </h6>
+    </div>
+  </body>
+  <script></script>
+</html>
