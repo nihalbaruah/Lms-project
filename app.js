@@ -7,7 +7,7 @@ const res = require('express/lib/response');
 const { render } = require('express/lib/response');
 const routes = require('./controllers/routes');
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 
 //express app
