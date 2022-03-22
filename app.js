@@ -7,7 +7,7 @@ const res = require('express/lib/response');
 const { render } = require('express/lib/response');
 const routes = require('./controllers/routes');
 
-const port = process.env.PORT || 5000
+
 
 
 //express app
@@ -17,7 +17,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
    .then(result =>
    {   console.log(result)
        console.log("connected to database")
-       app.listen(5000)
+       app.listen(process.env.PORT || 5000)
     })
    .catch((err) => console.log(err));
 
