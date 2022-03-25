@@ -12,7 +12,7 @@ const routes = require('./controllers/routes');
 
 //express app
 const app = express();
-const dbURI = 'mongodb+srv://Adarsh1:12@cluster0.8uv3w.mongodb.net/FirstDatabase?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://nihalbaruah_014:Database14@cluster0.4bkl2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
    .then(result =>
    {   console.log(result)
