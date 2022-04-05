@@ -13,7 +13,6 @@ router.get('/dashboard', (req, res) => {
      res.render('dashboard',{data:mytasks});  
     });
 });
-
 router.get('/course1', (req, res) =>{
     res.render('course1')
 });
@@ -32,7 +31,7 @@ router.post('/delete',(req, res) => {
     const id = req.body.id;
 
     tasks.findOneAndRemove({ _id: id }, (err , doc) =>{
-        res.redirect('/dashboard');
+        res.redirect('/dasboard');
     });
 });
 
