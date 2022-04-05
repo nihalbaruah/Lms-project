@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nacademy | Dashboard</title>
+    <title>task manager</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -15,9 +15,8 @@
     />
     <style>
       :root {
-        --gradient: linear-gradient(90deg, #0fc4f1, #1228f3);
+        --gradient: linear-gradient(90deg, #00c9ff, #8ed9ff);
       }
-
       * {
         font-family: "Open Sans", sans-serif;
         margin: 0;
@@ -29,29 +28,23 @@
         text-transform: capitalize;
         transition: all 0.2s linear;
       }
-
       *::selection {
         background: #0fc4f1;
         color: #fff;
       }
-
       html {
         font-size: 62.5%;
         overflow-x: hidden;
       }
-
       html::-webkit-scrollbar {
         width: 1.5rem;
       }
-
       html::-webkit-scrollbar-track {
         background: #333;
       }
-
       html::-webkit-scrollbar-thumb {
         background: linear-gradient(#0fc4f1, #1228f3);
       }
-
       header {
         width: 100%;
         display: flex;
@@ -65,14 +58,12 @@
         background: var(--gradient);
         box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
       }
-
       header .logo {
         color: #fff;
         font-size: 2.5rem;
         text-decoration: none;
         font-weight: bold;
       }
-
       header #menu {
         font-size: 3rem;
         color: #fff;
@@ -84,7 +75,6 @@
         color: #fff;
         cursor: pointer;
       }
-
       header #logout:hover {
         color: #444;
       }
@@ -92,18 +82,26 @@
         color: black;
         text-decoration: none;
       }
-
+      .row {
+        margin-top: 2%;
+        margin-left: 36%;
+        font-size: large;
+      }
+      .row input{
+        
+      }
+      
       .text {
         margin-top: 60px;
         font-size: x-large;
         font-weight: bold;
       }
       .content {
-        padding: 5em;
-        margin: 60px auto;
+        margin: 70px auto;
         max-width: 960px;
       }
       .content-head h1 {
+        margin-top:10%;
         font-size: 5rem;
         text-align: center;
         color: rgb(39, 39, 39);
@@ -138,17 +136,21 @@
   </head>
   <body>
     <div class="container">
+    <div class="content-head">
+          <h1>Software Development</h1>
+          <h2>Course Content</h2>
+        </div>
       <div class="row">
         <div class="col-12 col-nd-6 col-lg-5">
-          <!-- <form method="POST" action="/add">
+          <form method="POST" action="/add">
             <input
               type="text"
               name="task"
               id="task"
-              placeholder="enter a text"
+              placeholder="ENTER A TASK"
             />
             <input type="submit" value="Add" />
-          </form> -->
+          </form>
         </div>
       </div>
       <!-- // -->
@@ -164,10 +166,7 @@
       </header>
 
       <div class="content">
-        <div class="content-head">
-          <h1>Software Development</h1>
-          <h2>Course Content</h2>
-        </div>
+        
         <% for(var tasks of data ){ %>
         <form action="/delete" method="POST" class="form-inline my-3">
           <div class="div1">
@@ -181,13 +180,19 @@
             type="submit"
             class="btn btn-primary mx-2"
             formaction="/update"
-            onclick="colo"
           >
             Mark Completed
           </button>
           <% } %>
+        <button
+            type="submit"
+            class="btn btn-danger mx-2"
+          >
+            Delete
+          </button>
         </form>
         <% } %>
+         
       </div>
     </div>
     <div class="footer">
