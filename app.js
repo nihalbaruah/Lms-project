@@ -13,6 +13,7 @@ const routes = require('./controllers/routes');
 //express app
 const app = express();
 const dbURI = 'mongodb+srv://nihalbaruah_014:Database14@cluster0.4bkl2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
    .then(result =>
    {   console.log(result)
@@ -22,7 +23,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
    .catch((err) => console.log(err));
 
 
-app.use(routes);
+
 
 //register view engine
 app.set('view engine', 'ejs');
@@ -92,10 +93,8 @@ app.post('/login', async(req, res)=>{
 })
 
 app.get('/profile', (req, res) =>{
-  res.render('profile',{
-    Username: Username
-  })
+  res.render('profile')
 })
 
-
+app.use(routes);
 
