@@ -31,7 +31,7 @@ router.post('/delete',(req, res) => {
     const id = req.body.id;
 
     tasks.findOneAndRemove({ _id: id }, (err , doc) =>{
-        res.redirect('/dasboard');
+        res.redirect('/dashboard');
     });
 });
 
